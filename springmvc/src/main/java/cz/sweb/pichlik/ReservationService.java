@@ -34,10 +34,4 @@ public interface ReservationService {
      * @param reservationId rezervace
      */
     public void removeReservation(Long reservationId);
-    
-    /**
-     * Vraci seznam vsech dostupnych knizek v systemu.
-     * @return seznam dostupnych knizek
-     */
-    public List<Book> getAllAvailBooks();
 }

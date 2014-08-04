@@ -3,17 +3,10 @@
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xmlns:aop="http://www.springframework.org/schema/aop"
      xmlns:tx="http://www.springframework.org/schema/tx"
-     xmlns:context="http://www.springframework.org/schema/context"
      xsi:schemaLocation="
      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
-     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
-     http://www.springframework.org/schema/context
-     http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-
-  <context:annotation-config/>
-  <context:component-scan base-package="cz.sweb.pichlik.impl"/>
-
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
 
   <bean class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
 
@@ -48,34 +41,6 @@
                <prop key="hibernate.hbm2ddl.auto">create-drop</prop>                                               
            </props>
        </property>        
-   </bean>
-   
-   <bean id="memDao" class="cz.sweb.pichlik.impl.InMemoryBookStoreDao">
-   		<property name="bookHolder">
-   			<map key-type="java.lang.Long">
-   				<entry key="1">
-   					<bean class="cz.sweb.pichlik.impl.BookImpl">
-   						<constructor-arg value="1" />
-   						<constructor-arg value="Name 1" />
-   						<constructor-arg value="Author 1" />
-   					</bean>
-   				</entry>
-   				<entry key="2">
-   					<bean class="cz.sweb.pichlik.impl.BookImpl">
-   						<constructor-arg value="2" />
-   						<constructor-arg value="Name 2" />
-   						<constructor-arg value="Author 2" />
-   					</bean>
-   				</entry>
-   			</map>
-   		</property>
-   </bean>
-      
-   <bean class="cz.sweb.pichlik.impl.ReservationServiceImpl">
-   		<!-- 
-   		// kdyz toto odkomentuju, tak to bude fungovat
-   		<property name="bookStoreDao" ref="memDao" /> 
-   		-->
    </bean>
     
 </beans>

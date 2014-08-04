@@ -4,13 +4,11 @@
 
 package cz.sweb.pichlik.impl;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import cz.sweb.pichlik.Book;
 import cz.sweb.pichlik.BookStoreDao;
+import cz.sweb.pichlik.Book;
 
 /**
  * In-memory implementace {@link BookStoreDao}
@@ -32,9 +30,5 @@ public class InMemoryBookStoreDao implements BookStoreDao{
 
     public void setBookHolder(Map<Long, Book> bookHolder) {
         this.bookHolder = bookHolder;
-    }
-    
-    public List<Book> getBooks() {
-    	return new ArrayList<Book>(this.bookHolder.values());
     }
 }

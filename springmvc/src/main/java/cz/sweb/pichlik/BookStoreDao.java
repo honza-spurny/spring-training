@@ -1,7 +1,5 @@
 package cz.sweb.pichlik;
 
-import java.util.List;
-
 /**
  * Implementace tohoto rozhrani slouzi k ukladani/ziskavani knih z/do datoveho zdroje.
  */
@@ -22,6 +20,4 @@ public interface BookStoreDao {
      * @param book kniha k ulozeni
      */
     public void saveBook(Book book);
-    
-    public List<Book> getBooks();
 }

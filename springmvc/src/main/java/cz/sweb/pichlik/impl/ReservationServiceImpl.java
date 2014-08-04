@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import cz.sweb.pichlik.Book;
 import cz.sweb.pichlik.BookNotFoundException;
 import cz.sweb.pichlik.BookStoreDao;
@@ -16,10 +14,7 @@ import cz.sweb.pichlik.ReservationNotFoundException;
 import cz.sweb.pichlik.ReservationService;
 
 public class ReservationServiceImpl implements ReservationService{
-    
-	@Autowired
-	private BookStoreDao bookStoreDao;
-	
+    private BookStoreDao bookStoreDao;
     private AtomicLong counter = new AtomicLong();
     private Map<Long, Reservation> reservations = new HashMap<Long, Reservation>();
 
@@ -54,11 +49,6 @@ public class ReservationServiceImpl implements ReservationService{
     public void removeReservation(Long reservationId) {
         Reservation reservation = getReservation(reservationId);
         reservations.remove(reservation);
-    }
-    
-    @Override
-    public List<Book> getAllAvailBooks() {
-    	return this.bookStoreDao.getBooks();
     }
 
     public void setBookStoreDao(BookStoreDao bookStoreDao) {
