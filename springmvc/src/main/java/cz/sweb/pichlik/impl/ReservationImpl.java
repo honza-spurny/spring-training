@@ -25,4 +25,8 @@ public class ReservationImpl implements Reservation {
     public void setReservationId(Long reservationId) {
         this.reservationId = reservationId;
     }
+    
+    public String toString() {
+    	return "Reservation #" + this.reservationId + " (book #" + this.bookId + ")";
+    }
 }
